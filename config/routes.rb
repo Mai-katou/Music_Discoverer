@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "homes/about" => "homes#about", as: 'about_path'
 
+  namespace :admin do
+    get 'top' => 'homes#top'
+  end
+
   devise_for :admin,controllers:{
     sessions:"admin/sessions"
   }
