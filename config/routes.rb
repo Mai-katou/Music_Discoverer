@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    resources :evaluations, only:[:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :users, only:[:show, :edit, :update]
+  end
+
   root to: "homes#top"
   get "homes/about" => "homes#about", as: 'about_path'
 

@@ -13,10 +13,12 @@
   <body>
     <header>
       <% if admin_signed_in? %>
+        <a>管理者としてログイン中です</a>
         <li>
           <%=link_to "ログアウト",destroy_admin_session_path, method: :delete %>
         </li>
       <% elsif user_signed_in?%>
+        <a>ログイン中です</a>
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
@@ -29,7 +31,8 @@
         </li>
       <% end %>
     </header>
-
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
