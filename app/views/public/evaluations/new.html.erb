@@ -1,2 +1,15 @@
-<h1>Public::Evaluations#new</h1>
-<p>Find me in app/views/public/evaluations/new.html.erb</p>
+<h1>感想を投稿する</h1>
+  <%= form_with model: @evaluation, url: public_evaluations_path, method: :post, local:true do |f| %>
+
+  <p>曲名</p>
+  <%= f.text_field :music_title %>
+
+  <p>ポイント（1から10で選んでね）</p>
+  <%= f.select :point,*[1..10] %>
+
+  <p>感想</p>
+  <%= f.text_area :evaluation %>
+
+  <p><%=f.submit "保存する" %></p>
+
+  <% end %>

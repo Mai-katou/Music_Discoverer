@@ -1,1 +1,5 @@
-<h1>About MusicDiscoverer</h1>
+<h1>MusicDiscoverer</h1>
+<h2>メニュー</h2>
+  <%= link_to "みんなが投稿した音楽の感想はここからcheck!",public_evaluations_path %><br>
+  <%= link_to "音楽の感想を投稿する",new_public_evaluation_path %><br>
+  <%= link_to "プロフィール確認・編集はこちらから", public_user_path(current_user.id) %>
