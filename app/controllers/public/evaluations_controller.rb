@@ -9,20 +9,40 @@ class Public::EvaluationsController < ApplicationController
 
   def create
     @evaluation = Evaluation.new(evaluation_params)
-    @evaluation.save
-    redirect_to public_evaluations_path
+    @evaluation.user_id = current_user.id
+    if @evaluation.save
+      redirect_to public_evaluations_path
+    else
+      redirect_to about_path_url
+    end
   end
 
   def show
+    @evaluation = Evaluation.find(params[:id])
   end
 
   def edit
+    @evaluation= Evaluation.find(params[:id])
   end
 
   def update
+    @evaluation = Evaluation.find(params[:id])
+    if @evaluation.user_id=current_user.id
+       @evaluation.update
+       redirect_to public_user_path(current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
+    @evaluation = Evaluation.find(params[:id])
+    if @evaluation.user_id=current_user.id
+      @evaluation.destroy
+      redirect_to public_user_path(current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   private
