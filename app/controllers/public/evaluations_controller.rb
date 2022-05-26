@@ -28,7 +28,7 @@ class Public::EvaluationsController < ApplicationController
   def update
     @evaluation = Evaluation.find(params[:id])
     if @evaluation.user_id=current_user.id
-       @evaluation.update
+       @evaluation.update(evaluation_params)
        redirect_to public_user_path(current_user.id)
     else
       redirect_to root_path
