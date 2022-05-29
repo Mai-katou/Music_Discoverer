@@ -1,14 +1,20 @@
 <div class="container">
   <h1>投稿詳細</h1>
 
-      <p>曲名</p>
-      <%= @evaluation.music_title %>
+      <div class="row">
+        <p class="col-md-2 font-weight-bold">曲名</p>
+        <p class="col-md-2"><%= @evaluation.music_title %></p>
+      </div>
 
-      <p>ポイント</p>
-      <%= @evaluation.point %>
+      <div class="row">
+        <p class="col-md-2 font-weight-bold">ポイント</p>
+        <p class="col-md-2"><%= @evaluation.point %></p>
+      </div>
 
-      <p>感想</p>
-      <%= @evaluation.evaluation %>
+      <div class="row">
+        <p class="col-md-2 font-weight-bold">感想</p>
+        <p class="col-md-2"><%= @evaluation.evaluation %></p>
+      </div>
 
       <% if @evaluation.user_id = current_user.id %>
       <p><%= link_to "編集する", edit_public_evaluation_path(@evaluation.id) %></p>

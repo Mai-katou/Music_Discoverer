@@ -2,15 +2,20 @@
   <h1>感想を投稿する</h1>
     <%= form_with model: @evaluation, url: public_evaluations_path, method: :post, local:true do |f| %>
 
-    <p>曲名</p>
-    <%= f.text_field :music_title %>
+    <div class="row">
+      <p class="col-md-2 font-weight-bold">曲名</p>
+      <p class="col-md-2"><%= f.text_field :music_title %>
+    </div>
 
-    <p>ポイント（1から10で選んでね）</p>
-    <%= f.select :point,*[1..10] %>
+    <div class="row">
+      <p class="col-md-2">ポイント（1から10で選んでね）</p>
+      <p class="col-md-2"><%= f.select :point,*[1..10] %></p>
+    </div>
 
-    <p>感想</p>
-    <%= f.text_area :evaluation %>
-
+    <div class="row">
+    <p class="col-md-2 font-weight-bold">感想</p>
+    <p class="col-md-2"><%= f.text_area :evaluation %></p>
+    </div>
     <p><%=f.submit "保存する" %></p>
 
     <% end %>

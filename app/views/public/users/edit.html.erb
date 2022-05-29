@@ -1,11 +1,15 @@
 <div class="container">
   <h1>ユーザー編集</h1>
   <%= form_with model: @user, url: public_user_path(@user.id), method: :patch, local:true do |f| %>
-  <p>名前</p>
-  <%= f.text_field :name %>
-  <p>自己紹介</p>
-  <%=f.text_area :introduction %>
+  <div class="row">
+    <p class="col-md-2 font-weight-bold">名前</p>
+    <p class="col-md-2"><%= f.text_field :name %></p>
+  </div>
 
+  <div class="row">
+  <p class="col-md-2 font-weight-bold">自己紹介</p>
+  <p class="col-md-2"><%=f.text_area :introduction %></p>
+  </div>
   <%= f.submit "保存する" %>
   <% end %>
 </div>

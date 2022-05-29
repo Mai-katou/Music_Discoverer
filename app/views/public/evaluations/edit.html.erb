@@ -1,15 +1,21 @@
-<h1>投稿を編集する</h1>
-<%= form_with model: @evaluation, url: public_evaluation_path(@evaluation.id), method: :patch, local:true do |f| %>
+<div class ="container">
+  <h1>投稿を編集する</h1>
+  <%= form_with model: @evaluation, url: public_evaluation_path(@evaluation.id), method: :patch, local:true do |f| %>
 
-  <p>曲名</p>
-  <%= f.text_field :music_title %>
+  <div class="row">
+    <p class="col-md-2 font-weight-bold">曲名</p>
+    <p class="col-md-2"><%= f.text_field :music_title %></p>
+  </div>
 
-  <p>ポイント（1から10で選んでね）</p>
-  <%= f.select :point,*[1..10] %>
+  <div class="row">
+    <p class="col-md-2 font-weight-bold">ポイント（1から10で選んでね）</p>
+    <p class="col-md-2"><%= f.select :point,*[1..10] %></p>
+  </div>
+  <div class="row">
+    <p class="col-md-2 font-weight-bold">感想</p>
+    <p class="col-md-2"><%= f.text_area :evaluation %></p>
+  </div>
+    <p><%=f.submit "変更する" %></p>
 
-  <p>感想</p>
-  <%= f.text_area :evaluation %>
-
-  <p><%=f.submit "変更する" %></p>
-
-  <% end %>
+    <% end %>
+  </div>

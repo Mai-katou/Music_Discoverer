@@ -1,35 +1,39 @@
 <div class="container">
-<h1>ユーザーページ</h1>
-  <p>名前</p>
-  <%= @user.name %>
-  <p>自己紹介</p>
-  <%= @user.introduction %>
+  <h1>ユーザーページ</h1>
+  <div class="row">
+    <p class="col-md-2 font-weight-bold">名前</p>
+    <p class="col-md-2"><%= @user.name %></p>
+  </div>
+  <div class="row">
+    <p class="col-md-2 font-weight-bold">自己紹介</p>
+    <p class="col-md-2"><%= @user.introduction %></p>
+  </div>
 
-<% if @user.id = current_user.id %>
-  <p><%= link_to "編集する" ,edit_public_user_path(@user.id) %></p>
-<% end %>
+  <% if @user.id = current_user.id %>
+    <p><%= link_to "編集する" ,edit_public_user_path(@user.id) %></p>
+  <% end %>
 
-<h1>ユーザーの投稿一覧</h1>
-  <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>曲名</th>
-          <th>ポイント</th>
-          <th>感想</th>
-          <th></th>
-        </tr>
-      </thead>
+  <h1>ユーザーの投稿一覧</h1>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>曲名</th>
+            <th>ポイント</th>
+            <th>感想</th>
+            <th></th>
+          </tr>
+        </thead>
 
-      <tbody class="table table-striped">
-        <% @evaluations.each do |evaluation| %>
-        <tr>
-          <td><%= evaluation.music_title %></td>
-          <td><%= evaluation.point %></td>
-          <td><%= evaluation.evaluation %></td>
-          <td><%= link_to "詳細を見る", public_evaluation_path(evaluation.id) %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+        <tbody class="table table-striped">
+          <% @evaluations.each do |evaluation| %>
+          <tr>
+            <td><%= evaluation.music_title %></td>
+            <td><%= evaluation.point %></td>
+            <td><%= evaluation.evaluation %></td>
+            <td><%= link_to "詳細を見る", public_evaluation_path(evaluation.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-
+</div>
