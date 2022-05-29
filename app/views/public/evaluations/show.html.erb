@@ -17,8 +17,8 @@
       </div>
 
       <% if @evaluation.user_id = current_user.id %>
-      <p><%= link_to "編集する", edit_public_evaluation_path(@evaluation.id) %></p>
-      <p><%= link_to "削除する", public_evaluation_path(@evaluation.id), method: :delete ,"data-confirm" =>"本当に削除しますか?"%></p>
+      <p><%= link_to "編集する", edit_public_evaluation_path(@evaluation.id), class:"btn btn-success"%></p>
+      <p><%= link_to "削除する", public_evaluation_path(@evaluation.id), method: :delete ,"data-confirm" =>"本当に削除しますか?",class:"btn btn-danger"%></p>
       <% end %>
 
   </div>
